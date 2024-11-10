@@ -1,0 +1,25 @@
+{
+  "name": "remind-vscode",
+  "displayName": "Re:Mind VSCode",
+  "description": "Re:MindのVSCode拡張（非公式）/VScode extension for Re:Mind language (unofficial)",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "remind",
+      "aliases": ["Re:Mind", "remind"],
+      "extensions": ["remind"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "remind",
+      "scopeName": "source.remind",
+      "path": "./syntaxes/remind.tmLanguage.json"
+    }]
+  }
+}
