@@ -6,7 +6,7 @@
 			"include": "#comments"
 		},
 		{
-			"include": "#literals"
+			"include": "#expressions"
 		},
 		{
 			"include": "#statements"
@@ -31,6 +31,69 @@
 			"name": "comment.block.remind",
 			"begin": "/\\*",
 			"end": "\\*/"
+		},
+		"expressions": {
+			"patterns": [
+				{
+					"include": "#literals"
+				},
+				{
+					"include": "#variables"
+				},
+				{
+					"include": "#callExpressions"
+				}
+			]
+		},
+		"callExpressions": {
+			"patterns": [
+				{
+					"include": "#functionCall"
+				}
+			]
+		},
+		"functionCall": {
+			"name": "support.function.remind",
+			"begin": "[\\w_][\\d\\w_]*\\(",
+			"end": "\\)",
+			"patterns": [
+				{
+					"include": "#arguments"
+				},
+				{
+					"include": "#expressions"
+				},
+				{
+					"name": "invalid.illegal.remind",
+					"match": "[^=\\)]*"
+				}
+			]
+		},
+		"arguments": {
+			"match": "([^,]+)\\s*,\\s*([^)]+)",
+			"captures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#expressions"
+						}
+					]
+				},
+				"2": {
+					"patterns": [
+						{
+							"include": "#arguments"
+						},
+						{
+							"include": "#expressions"
+						}
+					]
+				}
+			}
+		},
+		"variables": {
+			"name": "variable.name.remind",
+			"match": "[\\w_][\\d\\w_]*"
 		},
 		"literals": {
 			"patterns": [
@@ -72,15 +135,28 @@
 			"match": "null"
 		},
 		"statements": {
-			"name": "keyword.other.remind",
-			"begin": "・\\s*",
-			"end": "(\\s*\\=|\\s)",
 			"patterns": [
 				{
-					"include": "#variableStatement"
+					"include": "#declalations"
 				},
 				{
-					"include": "#anonymousStatement"
+					"include": "#assignStatements"
+				},
+				{
+					"include": "#procedureStatements"
+				}
+			]
+		},
+		"declalations": {
+			"name": "keyword.other.remind",
+			"begin": "・\\s*",
+			"end": "(\\s*\\=|\\n)",
+			"patterns": [
+				{
+					"include": "#variableDeclarations"
+				},
+				{
+					"include": "#anonymousDeclarations"
 				},
 				{
 					"name": "invalid.illegal.remind",
@@ -88,21 +164,21 @@
 				}
 			]
 		},
-		"variableStatement": {
+		"variableDeclarations": {
 			"name": "keyword.control.remind",
 			"begin": "(変数|定数)",
 			"end": "\\s",
 			"patterns": [
 				{
-					"include": "#anonymousStatement"
+					"include": "#anonymousDeclarations"
 				},
 				{
 					"name": "invalid.illegal.remind",
-					"match": "[^\\n]*"
+					"match": "[^\\s]*"
 				}
 			]
 		},
-		"anonymousStatement": {
+		"anonymousDeclarations": {
 			"match": "([^=\n]+)\\s+([^\\s=\n]+)",
 			"captures": {
 				"1": {
@@ -112,6 +188,62 @@
 					"name": "variable.name.remind"
 				}
 			}
+		},
+		"assignStatements": {
+			"name": "keyword.other.remind",
+			"begin": "□\\s*",
+			"end": "(\\s*\\=|\\s)",
+			"patterns": [
+				{
+					"include": "#variables"
+				},
+				{
+					"include": "#inversionFunctionCall"
+				},
+				{
+					"name": "invalid.illegal.remind",
+					"match": "[^\\s=]*"
+				}
+			]
+		},
+		"procedureStatements": {
+			"name": "keyword.other.remind",
+			"begin": "□\\s*",
+			"end": "\\n",
+			"patterns": [
+				{
+					"include": "#inversionFunctionCall"
+				}
+			]
+		},
+		"inversionFunctionCall": {
+			"name": "keyword.other.remind",
+			"begin": "\\(",
+			"end": "\\)\\s*(で|を)\\s*(\\w+)\\s",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.control.remind"
+				},
+				"2": {
+					"patterns": [
+						{
+							"include": "#variables"
+						},
+						{
+							"name": "invalid.illegal.remind",
+							"match": "[^\\s]+"
+						}
+					]
+				}
+			},
+			"patterns": [
+				{
+					"include": "#arguments"
+				},
+				{
+					"include": "#expressions"
+				}
+			]
 		}
 	},
 	"scopeName": "source.remind"
