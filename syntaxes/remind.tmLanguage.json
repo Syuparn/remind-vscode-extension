@@ -7,6 +7,9 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#comments"
 		}
 	],
 	"repository": {
@@ -26,6 +29,25 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"include": "#lineComments"
+				},
+				{
+					"include": "#blockComments"
+				}
+			]
+		},
+		"lineComments": {
+			"name": "comment.line.remind",
+			"match": "//.*\\n"
+		},
+		"blockComments": {
+			"name": "comment.block.remind",
+			"begin": "/\\*[^*]",
+			"end": "\\*/"
 		}
 	},
 	"scopeName": "source.remind"
