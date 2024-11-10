@@ -1,7 +1,52 @@
+/*
+コメント関連
+*/
+
 // 1行コメント
 
 /*
 複数行コメント
 */
+/* 複数行コメントを1行で */
+
+/*
+リテラル関連
+*/
+
+// リテラル
+・変数int 年齢 = 16
+・変数float 身長 = 175.0
+・変数string 名前 = "Taro"
+・変数boolean 学生である = true
+・変数Homework 宿題 = null
+
+/*
+宣言関連
+*/
 
 // 変数
+・変数int 数値
+・変数public int 数値
+・変数public static int 数値
+・変数int 数値 = 1
+・変数public int 数値 = 1
+・変数public static int 数値 = 1
+// スペースを余分に空ける
+・変数int  数値 = 1
+・変数int 数値  = 1
+・変数 int 数値  = 1
+・ 変数 int 数値  = 1
+// "変数" の省略
+・int 数値 = 1
+・public int 数値 = 1
+・public static int 数値 = 1
+
+// 定数
+・定数int 数値
+・定数int 数値 = 1
+
+// 構文エラー
+・・
+・数値
+・定数 定数
+・変数 変数

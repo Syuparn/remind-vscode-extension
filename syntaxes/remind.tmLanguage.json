@@ -3,33 +3,16 @@
 	"name": "Re:Mind",
 	"patterns": [
 		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		},
-		{
 			"include": "#comments"
+		},
+		{
+			"include": "#literals"
+		},
+		{
+			"include": "#statements"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.remind",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.remind",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.remind",
-					"match": "\\\\."
-				}
-			]
-		},
 		"comments": {
 			"patterns": [
 				{
@@ -46,8 +29,89 @@
 		},
 		"blockComments": {
 			"name": "comment.block.remind",
-			"begin": "/\\*[^*]",
+			"begin": "/\\*",
 			"end": "\\*/"
+		},
+		"literals": {
+			"patterns": [
+				{
+					"include": "#numbers"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#booleans"
+				},
+				{
+					"include": "#null"
+				}
+			]
+		},
+		"numbers": {
+			"name": "constant.numeric.remind",
+			"match": "([0-9]+\\.)?([0-9]+)"
+		},
+		"strings": {
+			"name": "string.quoted.double.remind",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.remind",
+					"match": "\\\\."
+				}
+			]
+		},
+		"booleans": {
+			"name": "constant.language.remind",
+			"match": "(true|false)"
+		},
+		"null": {
+			"name": "constant.language.remind",
+			"match": "null"
+		},
+		"statements": {
+			"name": "keyword.other.remind",
+			"begin": "・\\s*",
+			"end": "(\\s*\\=|\\s)",
+			"patterns": [
+				{
+					"include": "#variableStatement"
+				},
+				{
+					"include": "#anonymousStatement"
+				},
+				{
+					"name": "invalid.illegal.remind",
+					"match": "[^=\\s]*"
+				}
+			]
+		},
+		"variableStatement": {
+			"name": "keyword.control.remind",
+			"begin": "(変数|定数)",
+			"end": "\\s",
+			"patterns": [
+				{
+					"include": "#anonymousStatement"
+				},
+				{
+					"name": "invalid.illegal.remind",
+					"match": "[^\\n]*"
+				}
+			]
+		},
+		"anonymousStatement": {
+			"match": "([^=\n]+)\\s+([^\\s=\n]+)",
+			"captures": {
+				"1": {
+					"name": "support.type.remind"
+				},
+				"2": {
+					"name": "variable.name.remind"
+				}
+			}
 		}
 	},
 	"scopeName": "source.remind"
