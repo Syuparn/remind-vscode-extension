@@ -7,22 +7,22 @@
     },
     // symbols used as brackets
     "brackets": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"]
+        ["▽", "△"],
+        ["◇", "◇"],
+        ["〇", "〇"]
     ],
     // symbols that are auto closed when typing
     "autoClosingPairs": [
-        ["{", "}"],
-        ["[", "]"],
-        ["(", ")"],
+        ["▽", "△"],
+        ["◇", "◇"],
+        ["〇", "〇"],
         ["\"", "\""],
         ["'", "'"]
     ],
     // symbols that can be used to surround a selection
     "surroundingPairs": [
-        ["{", "}"],
-        ["[", "]"],
+        ["▽", "△"],
+        ["◇", "◇"],
         ["(", ")"],
         ["\"", "\""],
         ["'", "'"]
