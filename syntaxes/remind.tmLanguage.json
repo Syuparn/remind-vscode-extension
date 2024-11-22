@@ -6,6 +6,9 @@
 			"include": "#comments"
 		},
 		{
+			"include": "#blocks"
+		},
+		{
 			"include": "#expressions"
 		},
 		{
@@ -227,6 +230,10 @@
 				"2": {
 					"patterns": [
 						{
+							"name": "keyword.control.remind",
+							"match": "返す"
+						},
+						{
 							"include": "#variables"
 						},
 						{
@@ -244,6 +251,61 @@
 					"include": "#expressions"
 				}
 			]
+		},
+		"blocks": {
+			"patterns": [
+				{
+					"include": "#functions"
+				}
+			]
+		},
+		"functions": {
+			"name": "keyword.other.remind",
+			"begin": "▽",
+			"end": "\\(([^)\\n]*)\\)\\s",
+			"endCaptures": {
+				"1": {
+					"patterns": [
+						{
+							"include": "#parameters"
+						}
+					]
+				}
+			},
+			"patterns": [
+				{
+					"include": "#signatures"
+				}
+			]
+		},
+		"parameters": {
+			"match": "([^),\n]+)\\s+([^,\\s)\n]+)(,([^)\n]+))?",
+			"captures": {
+				"1": {
+					"name": "support.type.remind"
+				},
+				"2": {
+					"name": "variable.name.remind"
+				},
+				"4": {
+					"patterns": [
+						{
+							"include": "#parameters"
+						}
+					]
+				}
+			}
+		},
+		"signatures": {
+			"match": "(([^(\n]+)\\s+)?([^\\s(\n]+)",
+			"captures": {
+				"1": {
+					"name": "support.type.remind"
+				},
+				"3": {
+					"name": "variable.name.remind"
+				}
+			}
 		}
 	},
 	"scopeName": "source.remind"
