@@ -258,10 +258,10 @@
 					"include": "#functions"
 				},
 				{
-					"include": "#endClauses"
+					"include": "#finalControlClauses"
 				},
 				{
-					"include": "#ifClauses"
+					"include": "#controlClauses"
 				}
 			]
 		},
@@ -313,7 +313,7 @@
 				}
 			}
 		},
-		"ifClauses": {
+		"controlClauses": {
 			"begin": "(◇)(他に)?",
 			"beginCaptures": {
 				"1": {
@@ -323,7 +323,7 @@
 					"name": "keyword.control.remind"
 				}
 			},
-			"end": "(の場合|\n)",
+			"end": "(の場合|で分岐する|\n)",
 			"endCaptures": {
 				"1": {
 					"name": "keyword.control.remind"
@@ -335,8 +335,8 @@
 				}
 			]
 		},
-		"endClauses": {
-			"match": "(◇)(ここまで)",
+		"finalControlClauses": {
+			"match": "(◇)(既定|ここまで)",
 			"captures": {
 				"1": {
 					"name": "keyword.other.remind"
