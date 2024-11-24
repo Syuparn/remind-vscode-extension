@@ -236,7 +236,7 @@
 		"inversionFunctionCall": {
 			"name": "keyword.other.remind",
 			"begin": "\\(",
-			"end": "\\)\\s*(で|を)\\s*(\\w+)\\s",
+			"end": "\\)\\s*(で|を)\\s*(\\w+(\\.\\w+)?)\\s",
 			"endCaptures": {
 				"1": {
 					"name": "keyword.control.remind"
@@ -246,6 +246,17 @@
 						{
 							"name": "keyword.control.remind",
 							"match": "返す"
+						},
+						{
+							"match": "(\\w+)\\.(\\w+)",
+							"captures": {
+								"1": {
+									"name": "variable.name.remind"
+								},
+								"2": {
+									"name": "variable.name.remind"
+								}
+							}
 						},
 						{
 							"include": "#variables"
@@ -268,6 +279,9 @@
 		},
 		"blocks": {
 			"patterns": [
+				{
+					"include": "#classes"
+				},
 				{
 					"include": "#functions"
 				},
@@ -329,6 +343,30 @@
 					"name": "support.type.remind"
 				},
 				"3": {
+					"name": "variable.name.remind"
+				}
+			}
+		},
+		"classes": {
+			"name": "keyword.other.remind",
+			"match": "(▽)(\\w+ +)?(class|クラス) +(\\w+)( +(:) +(\\w+))?",
+			"captures": {
+				"1": {
+					"name": "keyword.other.remind"
+				},
+				"2": {
+					"name": "support.type.remind"
+				},
+				"3": {
+					"name": "keyword.control.remind"
+				},
+				"4": {
+					"name": "variable.name.remind"
+				},
+				"6": {
+					"name": "keyword.other.remind"
+				},
+				"7": {
 					"name": "variable.name.remind"
 				}
 			}
