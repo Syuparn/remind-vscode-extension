@@ -9,7 +9,6 @@
     "brackets": [
         ["(", ")"],
         ["▽", "△"],
-        ["〇", "〇"]
     ],
     // symbols that are auto closed when typing
     "autoClosingPairs": [

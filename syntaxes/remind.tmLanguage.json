@@ -140,6 +140,9 @@
 		"statements": {
 			"patterns": [
 				{
+					"include": "#loopControllers"
+				},
+				{
 					"include": "#declalations"
 				},
 				{
@@ -149,6 +152,17 @@
 					"include": "#procedureStatements"
 				}
 			]
+		},
+		"loopControllers": {
+			"match": "(□)(脱出する|ループ先頭へ|反復処理)",
+			"captures": {
+				"1": {
+					"name": "keyword.other.remind"
+				},
+				"2": {
+					"name": "keyword.control.remind"
+				}
+			}
 		},
 		"declalations": {
 			"name": "keyword.other.remind",
@@ -262,6 +276,12 @@
 				},
 				{
 					"include": "#controlClauses"
+				},
+				{
+					"include": "#finalLoopClauses"
+				},
+				{
+					"include": "#loopClauses"
 				}
 			]
 		},
@@ -337,6 +357,61 @@
 		},
 		"finalControlClauses": {
 			"match": "(◇)(既定|ここまで)",
+			"captures": {
+				"1": {
+					"name": "keyword.other.remind"
+				},
+				"2": {
+					"name": "keyword.control.remind"
+				}
+			}
+		},
+		"loopClauses": {
+			"begin": "(〇)",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.remind"
+				}
+			},
+			"end": "((の間は)?繰り返す)",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.control.remind"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#expressions"
+				},
+				{
+					"match": "(([^\\=\n,]+)\\s+)?([^\\s\\=\n,]+)\\s*\\=\\s*([^,]+),([^,]+),([^繰])+\\s",
+					"captures": {
+						"1": {
+							"name": "support.type.remind"
+						},
+						"2": {
+							"name": "variable.name.remind"
+						},
+						"3": {
+							"patterns": [
+								{
+									"include": "#expressions"
+								}
+							]
+						},
+						"4": {
+							"patterns": [
+								{
+									"include": "#expressions"
+								}
+							]
+						}
+					}
+				}
+			]
+		},
+		"finalLoopClauses": {
+			"match": "(〇)(ここから|ここまで)",
 			"captures": {
 				"1": {
 					"name": "keyword.other.remind"
