@@ -256,6 +256,12 @@
 			"patterns": [
 				{
 					"include": "#functions"
+				},
+				{
+					"include": "#endClauses"
+				},
+				{
+					"include": "#ifClauses"
 				}
 			]
 		},
@@ -304,6 +310,39 @@
 				},
 				"3": {
 					"name": "variable.name.remind"
+				}
+			}
+		},
+		"ifClauses": {
+			"begin": "(◇)(他に)?",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.other.remind"
+				},
+				"2": {
+					"name": "keyword.control.remind"
+				}
+			},
+			"end": "(の場合|\n)",
+			"endCaptures": {
+				"1": {
+					"name": "keyword.control.remind"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#expressions"
+				}
+			]
+		},
+		"endClauses": {
+			"match": "(◇)(ここまで)",
+			"captures": {
+				"1": {
+					"name": "keyword.other.remind"
+				},
+				"2": {
+					"name": "keyword.control.remind"
 				}
 			}
 		}
