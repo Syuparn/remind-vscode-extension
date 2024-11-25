@@ -20,6 +20,10 @@
       "language": "remind",
       "scopeName": "source.remind",
       "path": "./syntaxes/remind.tmLanguage.json"
+    }],
+    "snippets": [{
+      "language": "remind",
+      "path": "./snippets/remind.json"
     }]
   }
 }

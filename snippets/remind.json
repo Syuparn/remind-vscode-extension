@@ -1,0 +1,78 @@
+{
+  "function": {
+    "prefix": ["▽", "さんかく", "function"],
+    "body": [
+      "▽public 型1 関数1($1)",
+      "△"
+    ]
+  },
+  "class": {
+    "prefix": ["▽", "さんかく", "class"],
+    "body": [
+      "▽public クラス クラス1",
+      "    ・変数型1 メンバ1",
+      "",
+      "    ▽public 関数1($1)",
+      "        $2",
+      "    △",
+      "△"
+    ]
+  },
+  "declalation": {
+    "prefix": ["・", "てん", "declalation"],
+    "body": [
+      "・変数型1 変数1 = $0"
+    ]
+  },
+  "assignment": {
+    "prefix": ["□", "しかく", "assignment"],
+    "body": [
+      "□変数1 = $1"
+    ]
+  },
+  "functioncall": {
+    "prefix": ["□", "しかく", "functioncall"],
+    "body": [
+      "□変数1 = 関数1($0)"
+    ]
+  },
+  "if": {
+    "prefix": ["◇", "しかく", "if"],
+    "body": [
+      "◇$0 の場合",
+      "    $1",
+      "◇ここまで"
+    ],
+    "description": "条件分岐（if文）"
+  },
+  "switch": {
+    "prefix": ["◇", "しかく", "switch"],
+    "body": [
+      "◇$0 で分岐する",
+      "◇$1",
+      "    $2",
+      "◇既定",
+      "    $3",
+      "◇ここまで"
+    ],
+    "description": "条件分岐（switch文）"
+  },
+  "for": {
+    "prefix": ["〇", "まる", "for"],
+    "body": [
+      "〇i=0,i<10,i++ 繰り返す",
+      "    $1",
+      "〇ここまで"
+    ],
+    "description": "繰り返し（for文）"
+  },
+  "while": {
+    "prefix": ["〇", "まる", "while"],
+    "body": [
+      "〇($0) の間は繰り返す",
+      "    $1",
+      "〇ここまで"
+    ],
+    "description": "繰り返し（while文）"
+  }
+}
