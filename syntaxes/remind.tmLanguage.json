@@ -57,12 +57,15 @@
 					"name": "variable.name.remind"
 				},
 				{
-					"match": "(@param)\\s+(\\w+)",
+					"match": "(@param|@return)\\s*(\\w*)(\\s+(\\w*))?",
 					"captures": {
 						"1": {
 							"name": "keyword.control.remind"
 						},
 						"2": {
+							"name": "variable.parameter.remind"
+						},
+						"4": {
 							"name": "variable.parameter.remind"
 						}
 					}

@@ -1,0 +1,47 @@
+/**
+* Shape
+*/
+▽public クラス 図形
+    /**
+    * getArea
+    */
+    ▽public float 面積を取得する()
+    △
+△
+
+
+/**
+* Circle : Shape
+*/
+▽public クラス 円 : 図形
+    /** radius */
+    ・変数float 半径
+
+    /** PI */
+    ・定数float 円周率 = 3.14
+
+    /**
+    * create
+    * @param 半径 radius
+    * @return 円
+    */
+    ▽public static 円 作成する(float 半径)
+        ・変数円 円インスタンス = new(半径)
+        □(円インスタンス)を 返す
+    △
+
+    /**
+    * getArea
+    */
+    ▽public float 面積を取得する()
+        □(半径 * 半径 * 円周率)を 返す
+    △
+△
+
+▽public メイン()
+    〇i=0,i<10,i++ 繰り返す
+        ・変数円 円1 = 円.作成する(i)
+        ・変数float 面積 = 円.面積を取得する()
+        □(面積)を 表示する
+    〇ここまで
+△

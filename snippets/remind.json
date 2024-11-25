@@ -30,10 +30,22 @@
       "□変数1 = $1"
     ]
   },
+  "return": {
+    "prefix": ["返す", "かえす", "return"],
+    "body": [
+      "□($0)を 返す"
+    ]
+  },
   "functioncall": {
     "prefix": ["□", "しかく", "functioncall"],
     "body": [
       "□変数1 = 関数1($0)"
+    ]
+  },
+  "voidfunctioncall": {
+    "prefix": ["□", "しかく", "functioncall"],
+    "body": [
+      "□($0)で 関数1"
     ]
   },
   "if": {

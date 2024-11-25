@@ -17,8 +17,9 @@
 // 関数
 /**
 * calculateFare
-* @param stationFrom
-* @param stationTo
+* @param 出発駅 stationFrom
+* @param 到着駅 stationTo
+* @return 運賃
 */
 ▽public int 運賃を計算する(string 出発駅, string 到着駅)
     // ...
