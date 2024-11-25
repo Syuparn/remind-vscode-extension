@@ -11,6 +11,34 @@
 /* 複数行コメントを1行で */
 
 /*
+ドキュメント
+*/
+
+// 関数
+/**
+* calculateFare
+* @param stationFrom
+* @param stationTo
+*/
+▽public int 運賃を計算する(string 出発駅, string 到着駅)
+    // ...
+    □(運賃)を 返す
+△
+
+// 変数
+/**
+* name
+*/
+・変数int 年齢 = 16
+
+// クラス
+/**
+* AdminAccount : Account
+*/
+▽public クラス 特権アカウント : アカウント
+△
+
+/*
 リテラル関連
 */
 

@@ -22,6 +22,9 @@
 					"include": "#lineComments"
 				},
 				{
+					"include": "#docComments"
+				},
+				{
 					"include": "#blockComments"
 				}
 			]
@@ -29,6 +32,42 @@
 		"lineComments": {
 			"name": "comment.line.remind",
 			"match": "//.*\\n"
+		},
+		"docComments": {
+			"name": "comment.block.remind",
+			"begin": "/\\*\\*",
+			"end": "\\*/",
+			"patterns": [
+				{
+					"match": "(\\w+)\\s*(:)\\s*(\\w+)",
+					"captures": {
+						"1": {
+							"name": "variable.name.remind"
+						},
+						"2": {
+							"name": "keyword.other.remind"
+						},
+						"3": {
+							"name": "variable.name.remind"
+						}
+					}
+				},
+				{
+					"match": "\\w+",
+					"name": "variable.name.remind"
+				},
+				{
+					"match": "(@param)\\s+(\\w+)",
+					"captures": {
+						"1": {
+							"name": "keyword.control.remind"
+						},
+						"2": {
+							"name": "variable.parameter.remind"
+						}
+					}
+				}
+			]
 		},
 		"blockComments": {
 			"name": "comment.block.remind",
