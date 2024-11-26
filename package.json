@@ -2,13 +2,18 @@
   "name": "remind-vscode",
   "displayName": "Re:Mind VSCode",
   "description": "Re:MindのVSCode拡張（非公式）/VScode extension for Re:Mind language (unofficial)",
-  "version": "0.0.1",
+  "publisher": "Syuparn",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.95.0"
   },
   "categories": [
     "Programming Languages"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Syuparn/remind-vscode-extension.git"
+  },
   "contributes": {
     "languages": [{
       "id": "remind",
